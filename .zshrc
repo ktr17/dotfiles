@@ -133,24 +133,22 @@ autoload -Uz vcs_info
 setopt prompt_subst    
 
 # vcsの表示    
-#zstyle ':vcs_info:*' formats '%s][* %F{green}%b%f' 
 zstyle ':vcs_info:*' formats '%s* %F{green}%b%f'
-
-#zstyle ':vcs_info:*' formats '%s* %F{green}%b%f'   
-#zstyle ':vcs_info:*' actionformats '%s][* %F{green}%b%f(%F{red}%a%f)'
 
 zstyle ':vcs_info:*' actionformats '%s* %F{green}%b%f(%F{red}%a%f)'    
 # プロンプト表示直前にvcs_info呼び出し    
 precmd() { vcs_info }    
 # プロンプト表示    
 PROMPT='%F{blue}%n:%C$%f[${vcs_info_msg_0_}]:%f ' 
-#PROMPT='%F{blue}%n:%C$%f${vcs_info_msg_0_}:%f '
 
 #gitのコンフリクトを確認するエイリアス
 git config --global alias.conflicts '!git ls-files -u | cut -f 2 | sort -u'
 
 #gitのdiff
 git config --global alias.d 'diff --word-diff'
+
+#git status
+alias gs="git status"
 
 # ~/.zshrcを更新する
 alias so="source ~/.zshrc"
@@ -160,3 +158,7 @@ alias finda="find . -name"
 
 #カレントディレクトリのフォルダを開く"
 alias f="open ."
+
+#emacsを起動
+alias e="emacs"
+
