@@ -26,9 +26,9 @@ endif
 "Indent ----------------------------------------------
 "" タブ設定
 set expandtab                    "タブをスペースに変換
-set tabstop=3
-set shiftwidth=3
-set softtabstop=3
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 
 set autoindent
 set smartindent
@@ -83,7 +83,15 @@ NeoBundle 'itchyny/lightline.vim'         "ステータスライン
 NeoBundle 'Yggdroot/indentLine'           "インデント
 NeoBundle 'jiangmiao/auto-pairs'          "括弧対応入力
 NeoBundle 'tomasr/molokai'                "カラースキーマ
+
+"自分の設定
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'toyamarinyon/vim-swift'        
+NeoBundle 'mitsuse/autocomplete-swift'
+NeoBundle 'Shougo/neocomplete.vim'
+
+
+
 " Plugin key-mappings.
  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -105,5 +113,5 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 
 call neobundle#end()
-filetype plugin indent on       " restore filetype
+filetype plugin indent on       " restore filetypea
 
