@@ -30,16 +30,16 @@ function set_proxy(){
 }
 
 function unset_proxy(){
-  unset http_proxy
-  unset HTTP_PROXY
-  unset ftp_proxy
-  unset FTP_PROXY
-  unset https_proxy
-  unset HTTPS_PROXY
+    unset http_proxy
+    unset HTTP_PROXY
+    unset ftp_proxy
+    unset FTP_PROXY
+    unset https_proxy
+    unset HTTPS_PROXY
 
-  git config --global --unset http.proxy
-  git config --global --unset https.proxy
-  git config --global --unset url."https://".insteadOf
+    git config --global --unset http.proxy
+    git config --global --unset https.proxy
+    git config --global --unset url."https://".insteadOf
 }
 
 if [ "`networksetup -getcurrentlocation`" = "$switch_trigger" ]; then
@@ -85,6 +85,9 @@ alias f="open ."
 
 #emacsを起動
 alias e="emacs"
+
+#lessを起動
+alias le="less"
 
 #大学の授業で使うエイリアス
 #コンピュータグラフィックス
