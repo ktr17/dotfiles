@@ -74,6 +74,10 @@ git config --global alias.d 'diff --word-diff'
 #git status
 alias gs="git status"
 
+#gitのコミットしたコメント内容を変更
+
+alias gr="git commit --amend -m"
+
 # ~/.zshrcを更新する
 alias so="source ~/.zshrc"
 
@@ -88,6 +92,9 @@ alias e="emacs"
 
 #lessを起動
 alias le="less"
+
+#打ち間違い用笑
+alias sl="ls"
 
 #大学の授業で使うエイリアス
 #コンピュータグラフィックス
