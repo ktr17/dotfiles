@@ -6,7 +6,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 # User configuration
-export PATH="/Users/keitaro/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:/Users/keitaro/.rbenv/shims:/Library/Frameworks/Python.framework/Versions/3.4/bin/Users/keitaro/Library/Android/sdk/tools:/Users/keitaro/Library/Android/sdk/platform-tools"
+export PATH="/usr/local/bin:/Users/keitaro/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:/Users/keitaro/.rbenv/shims:/Library/Frameworks/Python.framework/Versions/3.4/bin/Users/keitaro/Library/Android/sdk/tools:/Users/keitaro/Library/Android/sdk/platform-tools:/usr/local/bin/cocoapods"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,7 +84,7 @@ alias so="source ~/.zshrc"
 # find . -name "検索したいファイル名"
 alias finda="find . -name"
 
-#カレントディレクトリのフォルダを開く"
+#カレントディレクトリを開く"
 alias f="open ."
 
 #emacsを起動
@@ -95,6 +95,8 @@ alias le="less"
 
 #打ち間違い用笑
 alias sl="ls"
+
+alias cdv="cd /Users/keitaro/VirtualBox\ VMs/VM-share/大学"
 
 #大学の授業で使うエイリアス
 #コンピュータグラフィックス
