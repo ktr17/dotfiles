@@ -85,11 +85,11 @@ NeoBundle 'jiangmiao/auto-pairs'          "括弧対応入力
 NeoBundle 'tomasr/molokai'                "カラースキーマ
 
 "自分の設定
-NeoBundle 'Shougo/neosnippet'
+"NeoBundle 'Shougo/neosnippet'
 NeoBundle 'toyamarinyon/vim-swift'        
 NeoBundle 'mitsuse/autocomplete-swift'
 NeoBundle 'Shougo/neocomplete.vim'
-
+NeoBundle 'wakatime/vim-wakatime'
 
 " Plugin key-mappings.
  imap <C-k>     <Plug>(neosnippet_expand_or_jump)

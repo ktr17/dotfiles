@@ -75,7 +75,6 @@ git config --global alias.d 'diff --word-diff'
 alias gs="git status"
 
 #gitのコミットしたコメント内容を変更
-
 alias gr="git commit --amend -m"
 
 # ~/.zshrcを更新する
@@ -96,11 +95,14 @@ alias le="less"
 #打ち間違い用笑
 alias sl="ls"
 
+#大学のディレクトリに移動
 alias cdv="cd /Users/keitaro/VirtualBox\ VMs/VM-share/大学"
 
 #大学の授業で使うエイリアス
 #コンピュータグラフィックス
 alias glgcc="cc -framework GLUT -framework OpenGL -mmacosx-version-min=10.8"
+#CGの一時的なエイリアス
+alias mb="make billiard"
+alias vb="vi billiard.cpp"
 
-#swift用のエイリアス
-alias s="swift"
+alias :q="exit"
