@@ -96,13 +96,14 @@ NeoBundle 'wakatime/vim-wakatime'
  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
  xmap <C-k>     <Plug>(neosnippet_expand_target)
 
+" 以下のタブを使わせない設定は削除
  " SuperTab like snippets behavior.
- imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: pumvisible() ? "\<C-n>" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)"
-  \: "\<TAB>"
+" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"  \ "\<Plug>(neosnippet_expand_or_jump)"
+"  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+"  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+"  \ "\<Plug>(neosnippet_expand_or_jump)"
+"  \: "\<TAB>"
 
   " For snippet_complete marker.
    if has('conceal')
