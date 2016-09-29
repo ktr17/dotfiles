@@ -6,7 +6,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git)
 
 # User configuration
-export PATH="/usr/local/bin:/Users/keitaro/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:/Users/keitaro/.rbenv/shims:/Library/Frameworks/Python.framework/Versions/3.4/bin/Users/keitaro/Library/Android/sdk/tools:/Users/keitaro/Library/Android/sdk/platform-tools:/usr/local/bin/cocoapods"
+export PATH="/usr/local/bin:/Users/keitaro/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:/Users/keitaro/.rbenv/shims:/Library/Frameworks/Python.framework/Versions/3.4/bin/Users/keitaro/Library/Android/sdk/tools:/Users/keitaro/Library/Android/sdk/platform-tools"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,7 +96,7 @@ alias le="less"
 alias sl="ls"
 
 #大学のディレクトリに移動
-alias cdv="cd /Users/keitaro/VirtualBox\ VMs/VM-share/大学"
+alias cdv="cd ~/Documents/大学"
 
 #大学の授業で使うエイリアス
 #コンピュータグラフィックス
@@ -106,3 +106,13 @@ alias mb="make billiard"
 alias vb="vi billiard.cpp"
 
 alias :q="exit"
+
+#alias rb="open $(find ~/Library/Developer/CoreSimulator/Devices/$(ls -t1 ~/Library/Developer/CoreSimulator/Devices/ | head -1)/data/Containers/Data/Application/ -name \*.realm)"
+
+alias ho="heroku open"
+
+#Webコミュニケーション
+alias ta="/Library/Tomcat/bin/startup.sh"
+alias to="/Library/Tomcat/bin/shutdown.sh"
+
+alias cv="open -a '/Applications/Google Chrome.app' https://drive.google.com/drive/u/1/folders/0BzmO6KIkf3CkeFJadi0yTXVLaU0"

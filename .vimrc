@@ -90,6 +90,7 @@ NeoBundle 'toyamarinyon/vim-swift'
 NeoBundle 'mitsuse/autocomplete-swift'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'wakatime/vim-wakatime'
+NeoBundle 'mattn/emmet-vim'
 
 " Plugin key-mappings.
  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
