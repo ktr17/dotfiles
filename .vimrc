@@ -42,7 +42,6 @@ set smartcase                    "大文字ではじめたら大文字小文字�
 
 set noswapfile
 
-
 "SortCat
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
@@ -143,3 +142,4 @@ if &term =~ "xterm"
     cnoremap <special> <Esc>[200~ <nop>
     cnoremap <special> <Esc>[201~ <nop>
 endif
+autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict

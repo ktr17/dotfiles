@@ -5,8 +5,13 @@ ZSH_THEME="robbyrussell"
 
 plugins=(git)
 
+setopt nobeep # ビープ音を鳴らさない
+
 # User configuration
 export PATH="/usr/local/bin:/Users/keitaro/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:/Users/keitaro/.rbenv/shims:/Library/Frameworks/Python.framework/Versions/3.4/bin/Users/keitaro/Library/Android/sdk/tools:/Users/keitaro/Library/Android/sdk/platform-tools"
+
+#webコミュニケーション TomocatのCLASSPATH
+export CLASSPATH=.:/usr/local/apache-tomcat-8.5.5/lib/servlet-api.jar
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,3 +121,8 @@ alias ta="/Library/Tomcat/bin/startup.sh"
 alias to="/Library/Tomcat/bin/shutdown.sh"
 
 alias cv="open -a '/Applications/Google Chrome.app' https://drive.google.com/drive/u/1/folders/0BzmO6KIkf3CkeFJadi0yTXVLaU0"
+
+# 色の設定
+#export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
+#export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
+#zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
