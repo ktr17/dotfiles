@@ -8,11 +8,10 @@ plugins=(git)
 setopt nobeep # ビープ音を鳴らさない
 
 # User configuration
-export PATH="/usr/local/bin:/Users/keitaro/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:/Users/keitaro/.rbenv/shims:/Library/Frameworks/Python.framework/Versions/3.4/bin/Users/keitaro/Library/Android/sdk/tools:/Users/keitaro/Library/Android/sdk/platform-tools"
+export PATH="/usr/local/bin:/Users/keitaro/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/local/bin:/opt/local/sbin:/Users/keitaro/.rbenv/shims:/Library/Frameworks/Python.framework/Versions/3.4/bin/Users/keitaro/Library/Android/sdk/tools:/Users/keitaro/Library/Android/sdk/platform-tools:/usr/local/apache-tomcat-8.5.5/lib/mysql-connector-java-5.1.40-bin.jar"
 
 #webコミュニケーション TomocatのCLASSPATH
-export CLASSPATH=.:/usr/local/apache-tomcat-8.5.5/webapps/webcom/myjava:/usr/local/apache-tomcat-8.5.5/lib/servlet-api.jar:
-
+#export classpath=".:/usr/local/apache-tomcat-8.5.5/lib/servlet-api.jar:/usr/local/apache-tomcat-8.5.5/lib/mysql-connector-java-5.1.40-bin.jar:/usr/local/apache-tomcat-8.5.5/webapps/webcom/web-inf/classes/mybeans:/usr/local/apache-tomcat-8.5.5/webapps/webcom/myjava:"
 source $ZSH/oh-my-zsh.sh
 
 echo 'reload .zshrc file'
@@ -82,6 +81,8 @@ alias gs="git status"
 #gitのコミットしたコメント内容を変更
 alias gr="git commit --amend -m"
 
+alias ga="git branch -a"
+
 # ~/.zshrcを更新する
 alias so="source ~/.zshrc"
 
@@ -103,30 +104,12 @@ alias sl="ls"
 #大学のディレクトリに移動
 alias cdv="cd ~/Documents/大学"
 
-#大学の授業で使うエイリアス
-#コンピュータグラフィックス
-alias glgcc="cc -framework GLUT -framework OpenGL -mmacosx-version-min=10.8"
-#CGの一時的なエイリアス
-alias mb="make billiard"
-alias vb="vi billiard.cpp"
-
 alias :q="exit"
 
-alias rb="open $(find ~/Library/Developer/CoreSimulator/Devices/$(ls -t1 ~/Library/Developer/CoreSimulator/Devices/ | head -1)/data/Containers/Data/Application/ -name \*.realm)"
+#alias rb="open $(find ~/Library/Developer/CoreSimulator/Devices/$(ls -t1 ~/Library/Developer/CoreSimulator/Devices/ | head -1)/data/Containers/Data/Application/ -name \*.realm)"
 
 alias ho="heroku open"
 
-#Webコミュニケーション
-alias ta="/Library/Tomcat/bin/startup.sh"
-alias to="/Library/Tomcat/bin/shutdown.sh"
-alias tom="cd /usr/local/apache-tomcat-8.5.5/webapps/webcom"
-alias xc="java webcom.XmlCheck1"
-
-alias cv="open -a '/Applications/Google Chrome.app' https://drive.google.com/drive/u/1/folders/0BzmO6KIkf3CkeFJadi0yTXVLaU0"
-
 # 色の設定
-#export LSCOLORS=gxfxxxxxcxxxxxxxxxgxgx
-#export LS_COLORS='di=01;36:ln=01;35:ex=01;32'
 #zstyle ':completion:*' list-colors 'di=36' 'ln=35' 'ex=32'
 export LSCOLORS=cxfxcxdxbxegedabagacad
-

@@ -33,12 +33,10 @@ set softtabstop=4
 set autoindent
 set smartindent
 
-
 "Search
 set wrapscan                     "最後まで検索したら最初に戻る
 set ignorecase                   "大文字小文字無視
 set smartcase                    "大文字ではじめたら大文字小文字無視しない
-
 
 set noswapfile
 
@@ -84,23 +82,23 @@ NeoBundle 'jiangmiao/auto-pairs'          "括弧対応入力
 NeoBundle 'tomasr/molokai'                "カラースキーマ
 
 "自分の設定
-"NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet'
 NeoBundle 'toyamarinyon/vim-swift'        
 NeoBundle 'mitsuse/autocomplete-swift'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'mattn/emmet-vim'
-
+NeoBundle 'Shougo/neosnippet-snippets'
 " Plugin key-mappings.
  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
  xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " 以下のタブを使わせない設定は削除
- " SuperTab like snippets behavior.
+" SuperTab like snippets behavior.
 " imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "  \ "\<Plug>(neosnippet_expand_or_jump)"
-"  \: pumvisible() ? "\<C-n>" : "\<TAB>"
+"  \: pumvisibleu) ? "\<C-n>" : "\<TAB>"
 "  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "  \ "\<Plug>(neosnippet_expand_or_jump)"
 "  \: "\<TAB>"
