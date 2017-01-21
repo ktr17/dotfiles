@@ -3,6 +3,14 @@ function gi
   curl -L -s https://www.gitignore.io/api/$argv
 end
 
+function :q
+  exit
+end
+
+function f
+  open .
+end
+
 #set JAVA_HOME (/usr/libexec/java_home)
 #set HOMEBREW_CASK_OPTS --appdir=/Applications
 #set ANDROID_HOME ~/Library/Android/sdk
@@ -40,6 +48,8 @@ end
 function fish_right_prompt
   printf ''
 end
+
+
 
 ### initialize
 if not test -z (which rbenv)
