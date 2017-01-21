@@ -7,7 +7,7 @@ end
 #set HOMEBREW_CASK_OPTS --appdir=/Applications
 #set ANDROID_HOME ~/Library/Android/sdk
 #set PATH $ANDROID_HOME/platform-tools $PATH
-#set PATH ~/.rbenv/shims $PATH
+set PATH ~/.rbenv/shims $PATH
 
 ### prompt format
 set __fish_git_prompt_showdirtystate 'yes'
@@ -42,45 +42,9 @@ function fish_right_prompt
 end
 
 ### initialize
-#if not test -z (which rbenv)
-#  status --is-interactive; and source (rbenv init -|psub)
-#end
-#if not test -z (which direnv)
-#  eval (direnv hook fish)
-#end
-##proxy settings
-#proxy=wwwproxy.kanazawa-it.ac.jp:8080
-#switch_trigger=school
-
-#function set_proxy(){
-#    export http_proxy=http://$proxy
-#    export HTTP_PROXY=http://$proxy
-#    export ftp_proxy=ftp://$proxy
-#    export FTP_PROXY=FTP://$proxy
-#    export https_proxy=https://$proxy
-#    export HTTPS_PROXY=https://$proxy
-#
-#    git config --global http.proxy $proxy
-#    git config --global https.proxy $proxy
-#    git config --global url."https://".insteadOf git://
-#}
-#
-#function unset_proxy(){
-#    unset http_proxy
-#    unset HTTP_PROXY
-#    unset ftp_proxy
-#    unset FTP_PROXY
-#    unset https_proxy
-#    unset HTTPS_PROXY
-#
-#    git config --global --unset http.proxy
-#    git config --global --unset https.proxy
-#    git config --global --unset url."https://".insteadOf
-#}
-#if [ "`networksetup -getcurrentlocation`" = "$switch_trigger" ]; then
-#  echo "Switch to proxy for university network"
-#
-#  set_proxy
-#else
-#  unset_proxy
-#fi
+if not test -z (which rbenv)
+  status --is-interactive; and source (rbenv init -|psub)
+end
+if not test -z (which direnv)
+  eval (direnv hook fish)
+end
