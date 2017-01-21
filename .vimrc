@@ -141,3 +141,7 @@ if &term =~ "xterm"
     cnoremap <special> <Esc>[201~ <nop>
 endif
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
+
+if $SHELL =~ '/fish$'
+  set shell=zsh
+endif
