@@ -1,13 +1,4 @@
 ### function
-function :q
-  exit
-end
-
-function f
-  open .
-end
-
-# cdのあとlsを実行する
 function cd
   if test (count $argv) -gt 1
       printf "%s\n" (_ "Too many args for cd command")
@@ -89,3 +80,9 @@ end
 if not test -z (which direnv)
   eval (direnv hook fish)
 end
+
+### alias
+alias :q="exit"
+alias f="open ."
+alias cdv="cd /Users/keitaro/Documents/大学"
+alias gs="git status"
