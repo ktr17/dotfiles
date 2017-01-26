@@ -1,4 +1,4 @@
-### function
+#f## function
 function cd
   if test (count $argv) -gt 1
       printf "%s\n" (_ "Too many args for cd command")
@@ -38,6 +38,7 @@ end
 #set ANDROID_HOME ~/Library/Android/sdk
 #set PATH $ANDROID_HOME/platform-tools $PATH
 set PATH ~/.rbenv/shims $PATH
+set PATH ~/.pyenv/shims $PATH
 
 ### prompt format
 set __fish_git_prompt_showdirtystate 'yes'
