@@ -39,6 +39,7 @@ end
 #set PATH $ANDROID_HOME/platform-tools $PATH
 set PATH ~/.rbenv/shims $PATH
 set PATH ~/.pyenv/shims $PATH
+set PATH ~/.pyenv/bin $PATH
 
 ### prompt format
 set __fish_git_prompt_showdirtystate 'yes'
@@ -90,3 +91,4 @@ alias gs="git status"
 alias sl="ls"
 alias so="source ~/.config/fish/config.fish"
 alias f="open ."
+alias ho="heroku open"
