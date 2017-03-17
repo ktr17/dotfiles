@@ -2,7 +2,9 @@
 set number                       "行番号
 set showmatch                    "括弧の対応をハイライト
 set showcmd                      "入力中のコマンドを表示
-set list lcs=tab:\|\ ,eol:↲      " 不可視文字表示
+"set list lcs=tab:\|\ ,eol:↲      " 不可視文字表示
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set cursorline                   "カーソル行をハイライト
 syntax on
