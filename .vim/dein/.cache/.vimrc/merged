@@ -1,2 +1,2 @@
 100
-['/Users/keitaro/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim', 'Shougo/neosnippet-snippets', 'Shougo/neosnippet.vim', 'Shougo/vimshell']
+['/Users/keitaro/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim', 'Shougo/neocomplete.vim', 'Shougo/neosnippet-snippets', 'Shougo/neosnippet.vim', 'Shougo/unite.vim', 'Shougo/vimshell', 'itchyny/lightline.vim', 'tpope/vim-surround']
