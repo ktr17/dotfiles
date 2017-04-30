@@ -42,7 +42,6 @@ set smartcase                    "大文字ではじめたら大文字小文字�
 
 set noswapfile
 
-"SortCat
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
 nnoremap sj <C-w>j
@@ -59,52 +58,45 @@ nnoremap sH <C-w>H
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap uf :<C-u>Unite file<CR>
-
-
-"Pacage Control --------------------------------------
-set nocompatible
-filetype off            " for NeoBundle
-
-if has('vim_starting')
-        set rtp+=$HOME/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
-call neobundle#begin(expand('~/.vim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
 
-" ここから NeoBundle でプラグインを設定します
+" Required:
+set runtimepath+=/Users/keitaro/dotfiles/dein/repos/github.com/Shougo/dein.vim
 
-" NeoBundle で管理するプラグインを追加します。
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'             
-"Unite.vimで最近使ったファイルを表示>できるようにする
-NeoBundle 'Shougo/neocomplcache'          "補完
-NeoBundle 'itchyny/lightline.vim'         "ステータスライン
-NeoBundle 'Yggdroot/indentLine'           "インデント
-NeoBundle 'jiangmiao/auto-pairs'          "括弧対応入力
-NeoBundle 'tomasr/molokai'                "カラースキーマ
+" Required:
+if dein#load_state('/Users/keitaro/dotfiles/dein')
+  call dein#begin('/Users/keitaro/dotfiles/dein')
 
-"自分の設定
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'toyamarinyon/vim-swift'        
-NeoBundle 'mitsuse/autocomplete-swift'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-" Plugin key-mappings.
- imap <C-k>     <Plug>(neosnippet_expand_or_jump)
- smap <C-k>     <Plug>(neosnippet_expand_or_jump)
- xmap <C-k>     <Plug>(neosnippet_expand_target)
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/keitaro/dotfiles/dein/repos/github.com/Shougo/dein.vim')
 
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
 
-  " For snippet_complete marker.
-   if has('conceal')
-      set conceallevel=2 concealcursor=i
-   endif
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-NeoBundle 'Shougo/neosnippet-snippets'
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
 
-call neobundle#end()
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif
+
+"End dein Scripts-------------------------
+
 filetype plugin indent on       " restore filetypea
 
 "ノーマルモードの時に自動で英数に切り替える
