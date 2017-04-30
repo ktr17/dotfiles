@@ -77,6 +77,9 @@ if dein#load_state('/Users/keitaro/dotfiles/.vim/dein')
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('tpope/vim-surround')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('itchyny/lightline.vim')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -96,7 +99,6 @@ syntax enable
 "endif
 
 "End dein Scripts-------------------------
-
 filetype plugin indent on       " restore filetypea
 
 "ノーマルモードの時に自動で英数に切り替える
