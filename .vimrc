@@ -53,9 +53,9 @@ nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
-nnoremap sn gt
-nnoremap sp gT
-nnoremap st :<C-u>tabnew<CR>
+"nnoremap sn gt
+"nnoremap sp gT
+"nnoremap st :<C-u>tabnew<CR>
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap uf :<C-u>Unite file<CR>
@@ -96,14 +96,6 @@ NeoBundle 'Shougo/neosnippet-snippets'
  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
  xmap <C-k>     <Plug>(neosnippet_expand_target)
 
-" 以下のタブを使わせない設定は削除
-" SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"  \ "\<Plug>(neosnippet_expand_or_jump)"
-"  \: pumvisibleu) ? "\<C-n>" : "\<TAB>"
-"  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-"  \ "\<Plug>(neosnippet_expand_or_jump)"
-"  \: "\<TAB>"
 
   " For snippet_complete marker.
    if has('conceal')
@@ -144,6 +136,50 @@ if &term =~ "xterm"
 endif
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 
+" fishでvimを使う設定
 if $SHELL =~ '/fish$'
   set shell=zsh
 endif
+
+" タブの設定
+function! s:SID_PREFIX()
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+" Set tabline.
+function! s:my_tabline()  "{{{
+  let s = ''
+  for i in range(1, tabpagenr('$'))
+    let bufnrs = tabpagebuflist(i)
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+    let no = i  " display 0-origin tabpagenr.
+    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+    let title = fnamemodify(bufname(bufnr), ':t')
+    let title = '[' . title . ']'
+    let s .= '%'.i.'T'
+    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+    let s .= no . ':' . title
+    let s .= mod
+    let s .= '%#TabLineFill# '
+  endfor
+  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  return s
+endfunction "}}}
+let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+set showtabline=2 " 常にタブラインを表示
+
+" The prefix key.
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+map <silent> [Tag]t :tablast <bar> tabnew<CR>
+" tt 新しいタブを一番右に作る
+map <silent> [Tag]x :tabclose<CR>
+" tx タブを閉じる
+map <silent> [Tag]n :tabnext<CR>
+" tn 次のタブ
+map <silent> [Tag]p :tabprevious<CR>
+" tp 前のタブ
