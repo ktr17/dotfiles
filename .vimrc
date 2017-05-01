@@ -61,9 +61,13 @@ nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap uf :<C-u>Unite file<CR>
 
-"j/kによる移動を早くする
+" j/kによる移動を早くする
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
+
+" vimshellの設定
+nnoremap <silent> vl :VimShell<CR>
+nnoremap <silent> vp :VimShellPop<CR>
 
 "dein Scripts-----------------------------
 if &compatible
@@ -90,6 +94,8 @@ if dein#load_state('/Users/keitaro/dotfiles/.vim/dein')
   call dein#add('nathanaelkane/vim-indent-guides')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('rhysd/accelerated-jk')
+  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
