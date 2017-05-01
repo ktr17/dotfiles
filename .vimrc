@@ -44,6 +44,7 @@ set wrapscan                     "最後まで検索したら最初に戻る
 set ignorecase                   "大文字小文字無視
 set smartcase                    "大文字ではじめたら大文字小文字無視しない
 
+" swapファイルを作らない設定
 set noswapfile
 
 noremap <C-j> <esc>
@@ -58,10 +59,11 @@ nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
+nnoremap uf :<C-u>Unite file<CR>
 
 "j/kによる移動を早くする
 nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gktnnoremap uf :<C-u>Unite file<CR>
+nmap k <Plug>(accelerated_jk_gk)
 
 "dein Scripts-----------------------------
 if &compatible
