@@ -1,2 +1,2 @@
 100
-['/Users/keitaro/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim', 'Shougo/neocomplete.vim', 'Shougo/neosnippet-snippets', 'Shougo/neosnippet.vim', 'Shougo/unite.vim', 'Shougo/vimshell', 'itchyny/lightline.vim', 'nathanaelkane/vim-indent-guides', 'tpope/vim-surround']
+['/Users/keitaro/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim', 'Shougo/neocomplete.vim', 'Shougo/neosnippet-snippets', 'Shougo/neosnippet.vim', 'Shougo/unite.vim', 'Shougo/vimshell', 'itchyny/lightline.vim', 'nathanaelkane/vim-indent-guides', 'rhysd/accelerated-jk', 'tpope/vim-surround']
