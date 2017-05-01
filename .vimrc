@@ -80,6 +80,8 @@ if dein#load_state('/Users/keitaro/dotfiles/.vim/dein')
   call dein#add('tpope/vim-surround')
   call dein#add('Shougo/unite.vim')
   call dein#add('itchyny/lightline.vim')
+  call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('Shougo/neocomplete.vim')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -88,15 +90,34 @@ if dein#load_state('/Users/keitaro/dotfiles/.vim/dein')
   call dein#end()
   call dein#save_state()
 endif
+" ------------------------------------------------------------
+" ### neocomplete
+    let g:acp_enableAtStartup=1
+    let g:neocomplete#enable_at_startup=1
+    let g:neocomplete#enable_smart_case=1
+    let g:neocomplete#sources#syntax#min_keyword_lenth=2
+    let gLneocomplete#lock_buffer_name_pattern='\*ku\*'
+    if !exists('g:neocomplete#keyword_patterns')
+       let g:neocomplete#keyword_patterns={}
+    endif
+    let g:neocomplete#keyword_patterns['default']='\h\w*'
+    inoremap <expr><C-g> neocomplete#undo_completion()
+    inoremap <expr><C-l> neocomplete#complete_common_string()
+    inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" ### vim-indent-guides
+    let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_auto_colors = 1
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
 
 " Required:
 filetype plugin indent on
 syntax enable
 
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
 
 "End dein Scripts-------------------------
 filetype plugin indent on       " restore filetypea
@@ -141,19 +162,19 @@ function! s:SID_PREFIX()
 endfunction
 " Set tabline.
 function! s:my_tabline()  "{{{
-  let s = ''
-  for i in range(1, tabpagenr('$'))
-    let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-    let no = i  " display 0-origin tabpagenr.
-    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-    let title = fnamemodify(bufname(bufnr), ':t')
-    let title = '[' . title . ']'
-    let s .= '%'.i.'T'
-    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= no . ':' . title
-    let s .= mod
-    let s .= '%#TabLineFill# '
+    let s = ''
+    for i in range(1, tabpagenr('$'))
+      let bufnrs = tabpagebuflist(i)
+      let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+      let no = i  " display 0-origin tabpagenr.
+      let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+      let title = fnamemodify(bufname(bufnr), ':t')
+      let title = '[' . title . ']'
+      let s .= '%'.i.'T'
+      let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+      let s .= no . ':' . title
+      let s .= mod
+      let s .= '%#TabLineFill# '
   endfor
   let s .= '%#TabLineFill#%T%=%#TabLine#'
   return s
