@@ -1,143 +1,179 @@
-Neosnippet
-==========
+[![Stories in Ready](https://badge.waffle.io/Shougo/unite.vim.png)](https://waffle.io/Shougo/unite.vim)  
+![Unite.vim](https://s3.amazonaws.com/github-csexton/unite-brand.png)
 
-The Neosnippet plug-In adds snippet support to Vim. Snippets are
-small templates for commonly used code that you can fill in on the
-fly. To use snippets can increase your productivity in Vim a lot.
-The functionality of this plug-in is quite similar to plug-ins like
-snipMate.vim or snippetsEmu.vim. But since you can choose snippets with the
-[neocomplcache](https://github.com/Shougo/neocomplcache.vim) /
-[neocomplete](https://github.com/Shougo/neocomplete.vim) interface, you might
-have less trouble using them, because you do not have to remember each snippet
-name.
 
-Installation
-------------
+**Note**: Active developement on unite.vim has stopped. The only future changes will be bug fixes.
 
-To install neosnippet and other Vim plug-ins it is recommended to use one of the
-popular package managers for Vim, rather than installing by drag and drop all
-required files into your `.vim` folder.
+Please see [Denite.nvim](https://github.com/Shougo/denite.nvim).
 
-Notes:
 
-* Vim 7.4 or above is needed.
+The unite or unite.vim plug-in can search and display information from
+arbitrary sources like files, buffers, recently used files or registers.  You
+can run several pre-defined actions on a target displayed in the unite window.
 
-* Default snippets files are available in:
-  [neosnippet-snippets](https://github.com/Shougo/neosnippet-snippets)
-* Installing default snippets is optional. If choose not to install them,
-  you must deactivate them with `g:neosnippet#disable_runtime_snippets`.
-* neocomplcache/neocomplete is not required to use neosnippet, but it's highly recommended.
-* Extra snippets files can be found in:
-  [vim-snippets](https://github.com/honza/vim-snippets).
+The difference between unite and similar plug-ins like fuzzyfinder,
+ctrl-p or ku is that unite provides an integration interface for several
+sources and you can create new interfaces using unite.
 
-### Manual (not recommended)
+![](https://s3.amazonaws.com/github-csexton/unite-01.gif)
 
-1. Install the
-   [neocomplcache](https://github.com/Shougo/neocomplcache.vim)/
-   [neocomplete](https://github.com/Shougo/neocomplete.vim) and
-   [neosnippet-snippets](https://github.com/Shougo/neosnippet-snippets)
-   first.
-2. Put files in your Vim directory (usually `~/.vim/` or
-   `%PROGRAMFILES%/Vim/vimfiles` on Windows).
+## Usage
 
-### Vundle
+[![Join the chat at https://gitter.im/Shougo/unite.vim](https://badges.gitter.im/Shougo/unite.vim.svg)](https://gitter.im/Shougo/unite.vim?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-1. Setup the [vundle](https://github.com/gmarik/vundle) package manager
-2. Set the bundles for [neocomplcache](https://github.com/Shougo/neocomplcache)
-   or [neocomplete](https://github.com/Shougo/neocomplete.vim)
-   And [neosnippet](https://github.com/Shougo/neosnippet)
-   And [neosnippet-snippets](https://github.com/Shougo/neosnippet-snippets)
+Run unite to display files and buffers as sources to pick from.
 
-    ```vim
-    Plugin 'Shougo/neocomplcache'
-    or
-    Plugin 'Shougo/neocomplete'
+	:Unite file buffer
 
-    Plugin 'Shougo/neosnippet'
-    Plugin 'Shougo/neosnippet-snippets'
-    ```
 
-3. Open up Vim and start installation with `:PluginInstall`
+Run unite with an initial filter value (foo) to narrow down files.
 
-### Neobundle
+	:Unite -input=foo file
 
-1. Setup the [neobundle](https://github.com/Shougo/neobundle.vim) package manager
-2. Set the bundles for [neocomplcache](https://github.com/Shougo/neocomplcache)
-   or [neocomplete](https://github.com/Shougo/neocomplete.vim)
-   And [neosnippet](https://github.com/Shougo/neosnippet)
-   And [neosnippet-snippets](https://github.com/Shougo/neosnippet-snippets)
 
-    ```vim
-    NeoBundle 'Shougo/neocomplcache'
-    or
-    NeoBundle 'Shougo/neocomplete'
+If you start unite it splits the window horizontally and pops up
+from the top of Vim by default.
 
-    NeoBundle 'Shougo/neosnippet'
-    NeoBundle 'Shougo/neosnippet-snippets'
-    ```
+	:Unite file
 
-3. Open up Vim and start installation with `:NeoBundleInstall`
+The example call above lists all the files in the current directory. You can
+choose one of them in the unite window by moving the cursor up and down
+as usual with j and k. If you type Enter on an active candidate it will open
+it in a new buffer. Enter triggers the default action for a candidate which is
+"open" for candidates of the kind "file". You can also select an alternative
+action for a candidate with <Tab>. See also `unite-action` to read on about
+actions.
 
-### VAM (vim-addon-manager)
+You can also narrow down the list of candidates by a keyword. If you change
+into the insert mode inside of a unite window, the cursor drops you behind the
+">" in the second line from above. There you can start typing to filter the
+candidates.  You can also use the wild card `*` as an arbitrary character
+sequence. For example,
 
-1. Setup the [vim-addon-manager](https://github.com/MarcWeber/vim-addon-manager)
-   package manager.
-2. Add `neosnippet` to the list of addons in your vimrc:
+	*hisa
 
-    ```vim
-    call vam#ActivateAddons(['neosnippet', 'neosnippet-snippets'])
-    ```
+matches hisa, ujihisa, or ujihisahisa. Furthermore, two consecutive wild cards
+match a directory recursively.
 
-    . Installation will start automatically when you open vim next time.
+	**/foo
 
-Configuration
--------------
+So the example above matches bar/foo or buzz/bar/foo.
+Note: The unite action `file_rec` does a recursive file matching by default
+without the need to set wildcards.
 
-This is an example `~/.vimrc` configuration for Neosnippet. It is assumed you
-already have Neocomplcache configured. With the settings of the example, you
-can use the following keys:
+You can also specify multiple keywords to narrow down the candidates. Multiple
+keywords need to be separated either by a space " " or a dash "|". The
+examples below match for candidates that meet both conditions "foo" and "bar".
 
-* `C-k` to select-and-expand a snippet from the Neocomplcache popup (Use `C-n`
-  and `C-p` to select it). `C-k` can also be used to jump to the next field in
-  the snippet.
-* `Tab` to select the next field to fill in the snippet.
+	foo bar
+	foo|bar
 
-```vim
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+You can also specify negative conditions with an exclamation mark "!".  This
+matches candidates that meet "foo" but do not meet "bar".
 
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+	foo !bar
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+Wild cards are added automatically if you add a "/" in the filter and you have
+specified "files" as the buffer name with the option "-buffer-name". That's
+handy in case you select files with unite.
+
+	:Unite -buffer-name=files file
+
+See also `unite_default_key_mappings` for other actions.
+
+## Install
+
+Install the distributed files into your Vim script directory which is usually
+`~/.vim/`, or `$HOME/vimfiles` on Windows. You should consider using one of the
+famous package managers for Vim like vundle or neobundle to install the
+plugin.
+
+After installation you can run unite with the `:Unite` command and append the
+sources to the command you wish to select from as parameters. However, it's a
+pain in the ass to run the command explicitly every time, so I recommend you
+to set a key mapping for the command. See `:h unite`.
+
+Note: MRU sources are splitted.  To use mru sources, you must install neomru.
+https://github.com/Shougo/neomru.vim
+
+## Resources
+
+* [Unite plugins (in Japanese)](https://github.com/Shougo/unite.vim/wiki/unite-plugins)
+* [Unite.vim, the Plugin You Didn't Know You Need](http://bling.github.io/blog/2013/06/02/unite-dot-vim-the-plugin-you-didnt-know-you-need/)
+* [Replacing All The Things with Unite.vim — Codeography](http://www.codeography.com/2013/06/17/replacing-all-the-things-with-unite-vim.html)
+* [Beginner's Guide to Unite](http://usevim.com/2013/06/19/unite/)
+* [Standards: How to make a Unite plugin](http://ujihisa.blogspot.jp/2010/11/how-to-make-unite-plugin.html)
+* [FAQ (`:h unite-faq`)](https://github.com/Shougo/unite.vim/blob/master/doc/unite.txt#L3608)
+
+
+## Screen shots
+
+unite action source
+-------------------
+![Unite action source.](http://gyazo.com/c5c000170f28926aaf83d0c47bc5fcbb.png)
+
+unite output source
+-------------------
+![Unite output source.](http://cdn-ak.f.st-hatena.com/images/fotolife/o/osyo-manga/20130307/20130307101224.png)
+
+unite mapping source
+--------------------
+![Unite mapping source.](http://cdn-ak.f.st-hatena.com/images/fotolife/o/osyo-manga/20130307/20130307101225.png)
+
+unite menu source
+-----------------
+![Unite menu source.](http://cdn-ak.f.st-hatena.com/images/fotolife/o/osyo-manga/20130307/20130307101227.png)
+
+unite menu source with customization
+------------------------------------
+![Unite menu source with customization.](https://f.cloud.github.com/assets/390964/734885/82b91006-e2e1-11e2-9957-fb279bc71311.png)
+
+```viml
+let g:unite_source_menu_menus = get(g:,'unite_source_menu_menus',{})
+let g:unite_source_menu_menus.git = {
+    \ 'description' : '            gestionar repositorios git
+        \                            ⌘ [espacio]g',
+    \}
+let g:unite_source_menu_menus.git.command_candidates = [
+    \['▷ tig                                                        ⌘ ,gt',
+        \'normal ,gt'],
+    \['▷ git status       (Fugitive)                                ⌘ ,gs',
+        \'Gstatus'],
+    \['▷ git diff         (Fugitive)                                ⌘ ,gd',
+        \'Gdiff'],
+    \['▷ git commit       (Fugitive)                                ⌘ ,gc',
+        \'Gcommit'],
+    \['▷ git log          (Fugitive)                                ⌘ ,gl',
+        \'exe "silent Glog | Unite quickfix"'],
+    \['▷ git blame        (Fugitive)                                ⌘ ,gb',
+        \'Gblame'],
+    \['▷ git stage        (Fugitive)                                ⌘ ,gw',
+        \'Gwrite'],
+    \['▷ git checkout     (Fugitive)                                ⌘ ,go',
+        \'Gread'],
+    \['▷ git rm           (Fugitive)                                ⌘ ,gr',
+        \'Gremove'],
+    \['▷ git mv           (Fugitive)                                ⌘ ,gm',
+        \'exe "Gmove " input("destino: ")'],
+    \['▷ git push         (Fugitive, salida por buffer)             ⌘ ,gp',
+        \'Git! push'],
+    \['▷ git pull         (Fugitive, salida por buffer)             ⌘ ,gP',
+        \'Git! pull'],
+    \['▷ git prompt       (Fugitive, salida por buffer)             ⌘ ,gi',
+        \'exe "Git! " input("comando git: ")'],
+    \['▷ git cd           (Fugitive)',
+        \'Gcd'],
+    \]
+nnoremap <silent>[menu]g :Unite -silent -start-insert menu:git<CR>
 ```
 
-If you want to use a different collection of snippets than the
-built-in ones, then you can set a path to the snippets with
-the `g:neosnippet#snippets_directory` variable (e.g [Honza's
-Snippets](https://github.com/honza/vim-snippets))
+## Video
 
-But if you enable `g:neosnippet#enable_snipmate_compatibility`, neosnippet will
-load snipMate snippets from runtime path automatically.
+https://www.youtube.com/watch?v=fwqhBSxhGU0&hd=1
 
-```vim
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
+It is a good introduction about the possibilities of Unite by ReneFroger.
 
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-```
 
+## Special Thanks
+
+* Dragon Image was originally from [Stanislav](http://All-Silhouettes.com)
