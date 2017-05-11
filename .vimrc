@@ -7,6 +7,8 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set cursorline                   "カーソル行をハイライト
+set backspace=indent,eol,start "Pythonなどでインデントをbackspaceで消す
+
 syntax on
 colorscheme molokai
 
@@ -117,6 +119,7 @@ endif
   inoremap <expr><C-g> neocomplete#undo_completion()
   inoremap <expr><C-l> neocomplete#complete_common_string()
   inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  ino <expr> <CR> pumvisible() ? "<CR><c-o>:pclose<CR>" : "<CR>"
 
 " ### vim-indent-guides
   let g:indent_guides_enable_on_vim_startup = 1
