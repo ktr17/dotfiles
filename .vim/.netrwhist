@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/usr/local/apache-tomcat-8.5.5/webapps/webcom/WEB-INF/classes'
 let g:netrw_dirhist_2='/usr/local/apache-tomcat-8.5.5/webapps/webcom/WEB-INF'
 let g:netrw_dirhist_3='/Users/keitaro/.oh-my-zsh'
 let g:netrw_dirhist_4='/Users/keitaro/Documents/project_one/Lora/distanceTestProgram'
 let g:netrw_dirhist_5='/Users/keitaro/Documents/docker/laravel_docker/Dockerfiles'
 let g:netrw_dirhist_6='/Users/keitaro/dotfiles/.vim'
+let g:netrw_dirhist_7='/Users/keitaro/Documents/PHP-heroku-test'

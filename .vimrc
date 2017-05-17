@@ -10,6 +10,12 @@ set cursorline                   "カーソル行をハイライト
 set backspace=indent,eol,start "Pythonなどでインデントをbackspaceで消す
 
 syntax on
+
+" solarized用の設定
+"set background=light
+"colorscheme solarized
+
+" molokai用の設定
 colorscheme molokai
 
 " 全角スペースをハイライト表示
@@ -97,6 +103,7 @@ if dein#load_state('/Users/keitaro/dotfiles/.vim/dein')
   call dein#add('Shougo/neocomplete.vim')
   call dein#add('rhysd/accelerated-jk')
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+  call dein#add('jiangmiao/auto-pairs')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
