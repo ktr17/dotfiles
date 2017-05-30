@@ -51,6 +51,7 @@ set smartindent
 set wrapscan                     "最後まで検索したら最初に戻る
 set ignorecase                   "大文字小文字無視
 set smartcase                    "大文字ではじめたら大文字小文字無視しない
+set hlsearch                     " 検索結果のハイライト
 
 " swapファイルを作らない設定
 set noswapfile
