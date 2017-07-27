@@ -53,15 +53,14 @@ set __fish_git_prompt_char_dirtystate '*'
 set __fish_git_prompt_char_stagedstate '#'
 set __fish_git_prompt_char_untrackedfiles '+'
 set __fish_git_prompt_char_stashstate '@'
-
-sh checkProxy
+set fish_color_cwd "blue"
 
 # プロンプトを変更したいときは fish_prompt を修正
 function fish_prompt
   set last_status $status
 
   set_color $fish_color_cwd
-  printf '%s:%s' (whoami) ( PWD | awk -F "/" '{ print $NF }')
+  printf '%s:%s' (whoami) ( pwd | awk -F "/" '{ print $NF }')
   set_color normal
 
   printf '%s$ ' (__fish_git_prompt)
@@ -86,7 +85,6 @@ end
 ### alias
 alias :q="exit"
 alias f="open ."
-alias cdv="cd /Users/keitaro/Documents/大学"
 alias gs="git status"
 alias sl="ls"
 alias so="source ~/.config/fish/config.fish"

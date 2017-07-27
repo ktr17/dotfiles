@@ -83,16 +83,17 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=/Users/keitaro/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/keitaro/dotfiles/.vim/dein')
-  call dein#begin('/Users/keitaro/dotfiles/.vim/dein')
+set runtimepath+=/home/pi/dotfiles/.vim/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/home/pi/dotfiles/.vim')
+  call dein#begin('/home/pi/dotfiles/.vim')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/keitaro/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('/home/pi/dotfiles/.vim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
