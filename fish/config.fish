@@ -37,7 +37,7 @@ end
 #set HOMEBREW_CASK_OPTS --appdir=/Applications
 #set ANDROID_HOME ~/Library/Android/sdk
 #set PATH $ANDROID_HOME/platform-tools $PATH
-set PATH ~/.rbenv/shims $PATH
+#set PATH ~/.rbenv/shims $PATH
 set PATH ~/.pyenv/shims $PATH
 set PATH ~/.pyenv/bin $PATH
 
@@ -53,7 +53,9 @@ set __fish_git_prompt_char_dirtystate '*'
 set __fish_git_prompt_char_stagedstate '#'
 set __fish_git_prompt_char_untrackedfiles '+'
 set __fish_git_prompt_char_stashstate '@'
-set fish_color_cwd "blue"
+set fish_color_cwd "green"
+
+sh checkProxy
 
 # プロンプトを変更したいときは fish_prompt を修正
 function fish_prompt
@@ -91,3 +93,10 @@ alias so="source ~/.config/fish/config.fish"
 alias f="open ."
 alias ho="heroku open"
 alias vi="vim"
+alias cdv="cd /Users/ktr17/Documents/大学院/後期"
+alias ptex="ptex2pdf -l -ot -kanji=utf8"
+alias cdp="cd /Users/ktr17/Documents/大学院/PD3"
+alias tr="open /Users/ktr17/Documents/treatise/論文集"
+alias net="/Users/ktr17/ns-allinone-3.27/netanim-3.108/NetAnim"
+alias pd="cd /Users/ktr17/Documents/大学院/PD3"
+alias ip="ipython"

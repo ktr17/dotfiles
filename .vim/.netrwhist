@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/keitaro/AndroidStudioProjects/WalkingTracker/.git/logs'
 let g:netrw_dirhist_2='/Users/keitaro/AndroidStudioProjects/WalkingTracker/.git/logs/refs'
+let g:netrw_dirhist_3='/Users/ktr17/Documents/python/chrome_driver'
+let g:netrw_dirhist_4='/Users/ktr17/dotfiles/.vim/repos'
+let g:netrw_dirhist_5='/Users/ktr17/Documents/python/django/mysite/polls'
+let g:netrw_dirhist_6='/Users/ktr17/Documents/python/django/django_rest_framework_test/blog'
+let g:netrw_dirhist_7='/Users/ktr17/Documents/大学院/PD3/texs/pd_abstract/.git'

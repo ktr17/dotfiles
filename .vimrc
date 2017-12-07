@@ -85,15 +85,15 @@ endif
 
 
 " Required:
-set runtimepath+=/home/pi/dotfiles/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/ktr17/dotfiles/.vim/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/pi/dotfiles/.vim')
-  call dein#begin('/home/pi/dotfiles/.vim')
+if dein#load_state('/Users/ktr17/dotfiles/.vim')
+  call dein#begin('/Users/ktr17/dotfiles/.vim')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/pi/dotfiles/.vim/repos/github.com/Shougo/dein.vim')
+  call dein#add('/Users/ktr17/dotfiles/.vim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
