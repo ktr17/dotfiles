@@ -1,2 +1,7 @@
 fish/fishd.80e650199d0e
+/.vim/dein/
 .DS_Store
+.vim/.netrwhist/
+.vim/*cache*
+.vim/*state*
+.vim/repo*

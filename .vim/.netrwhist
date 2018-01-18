@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/usr/local/apache-tomcat-8.5.5/webapps/webcom/WEB-INF/classes'
-let g:netrw_dirhist_2='/usr/local/apache-tomcat-8.5.5/webapps/webcom/WEB-INF'
-let g:netrw_dirhist_3='/Users/keitaro/.oh-my-zsh'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/ktr17/Desktop/controller/.git/logs/refs/remotes'
+let g:netrw_dirhist_2='/Users/ktr17/Documents/大学院/PD3/texs/pd_report/abstract'
+let g:netrw_dirhist_3='/Users/ktr17/Desktop/ES920LR-Library/before_sending'
+let g:netrw_dirhist_4='/Users/ktr17/Documents/大学院/後期/ユビキタス情報システム特論/Hadoop実践/output'

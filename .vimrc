@@ -7,23 +7,35 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set cursorline                   "カーソル行をハイライト
+set backspace=indent,eol,start "Pythonなどでインデントをbackspaceで消す
+
 syntax on
+
+" solarized用の設定
+"set background=light
+"colorscheme solarized
+
+" molokai用の設定
 colorscheme molokai
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
-    highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+  highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
 
 if has('syntax')
-    augroup ZenkakuSpace
-        autocmd!
-        autocmd ColorScheme       * call ZenkakuSpace()
-        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme       * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
     augroup END
-    call ZenkakuSpace()
+  call ZenkakuSpace()
 endif
 
+" swapファイルを作成しない
+set noswapfile
+" ビジュアルモードで選択したテキストが、クリップボードに入るようにする
+set clipboard=autoselect
 
 "Indent ----------------------------------------------
 "" タブ設定
@@ -39,10 +51,11 @@ set smartindent
 set wrapscan                     "最後まで検索したら最初に戻る
 set ignorecase                   "大文字小文字無視
 set smartcase                    "大文字ではじめたら大文字小文字無視しない
+set hlsearch                     " 検索結果のハイライト
 
+" swapファイルを作らない設定
 set noswapfile
 
-"SortCat
 noremap <C-j> <esc>
 noremap! <C-j> <esc>
 nnoremap sj <C-w>j
@@ -53,86 +66,113 @@ nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
-"nnoremap sn gt
-"nnoremap sp gT
-"nnoremap st :<C-u>tabnew<CR>
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap uf :<C-u>Unite file<CR>
 
+" j/kによる移動を早くする
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
 
-"Pacage Control --------------------------------------
-set nocompatible
-filetype off            " for NeoBundle
+" vimshellの設定
+nnoremap <silent> vl :VimShell<CR>
+nnoremap <silent> vp :VimShellPop<CR>
 
-if has('vim_starting')
-        set rtp+=$HOME/.vim/bundle/neobundle.vim/
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
 endif
-call neobundle#begin(expand('~/.vim/bundle'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" ここから NeoBundle でプラグインを設定します
-
-" NeoBundle で管理するプラグインを追加します。
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'             
-"Unite.vimで最近使ったファイルを表示>できるようにする
-NeoBundle 'Shougo/neocomplcache'          "補完
-NeoBundle 'itchyny/lightline.vim'         "ステータスライン
-NeoBundle 'Yggdroot/indentLine'           "インデント
-NeoBundle 'jiangmiao/auto-pairs'          "括弧対応入力
-NeoBundle 'tomasr/molokai'                "カラースキーマ
-
-"自分の設定
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'toyamarinyon/vim-swift'        
-NeoBundle 'mitsuse/autocomplete-swift'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-" Plugin key-mappings.
- imap <C-k>     <Plug>(neosnippet_expand_or_jump)
- smap <C-k>     <Plug>(neosnippet_expand_or_jump)
- xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 
-  " For snippet_complete marker.
-   if has('conceal')
-      set conceallevel=2 concealcursor=i
-   endif
+" Required:
+set runtimepath+=/Users/ktr17/dotfiles/.vim/repos/github.com/Shougo/dein.vim
 
-NeoBundle 'Shougo/neosnippet-snippets'
+" Required:
+if dein#load_state('/Users/ktr17/dotfiles/.vim')
+  call dein#begin('/Users/ktr17/dotfiles/.vim')
 
-call neobundle#end()
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/ktr17/dotfiles/.vim/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+  call dein#add('tpope/vim-surround')
+  call dein#add('Shougo/unite.vim')
+  call dein#add('itchyny/lightline.vim')
+  call dein#add('nathanaelkane/vim-indent-guides')
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('rhysd/accelerated-jk')
+  call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+  call dein#add('jiangmiao/auto-pairs')
+
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+" ------------------------------------------------------------
+" ### neocomplete
+  let g:acp_enableAtStartup=1
+  let g:neocomplete#enable_at_startup=1
+  let g:neocomplete#enable_smart_case=1
+  let g:neocomplete#sources#syntax#min_keyword_lenth=2
+  let gLneocomplete#lock_buffer_name_pattern='\*ku\*'
+  if !exists('g:neocomplete#keyword_patterns')
+     let g:neocomplete#keyword_patterns={}
+  endif
+  let g:neocomplete#keyword_patterns['default']='\h\w*'
+  inoremap <expr><C-g> neocomplete#undo_completion()
+  inoremap <expr><C-l> neocomplete#complete_common_string()
+  inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+  ino <expr> <CR> pumvisible() ? "<CR><c-o>:pclose<CR>" : "<CR>"
+
+" ### vim-indent-guides
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_auto_colors = 1
+  let g:indent_guides_start_level = 2
+  let g:indent_guides_guide_size = 1
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
 filetype plugin indent on       " restore filetypea
 
 "ノーマルモードの時に自動で英数に切り替える
 if executable('osascript')
-      let s:keycode_jis_eisuu = 102
-      let g:force_alphanumeric_input_command = "osascript -e 'tell application \"System Events\" to key code " . s:keycode_jis_eisuu . "' &"
+  let s:keycode_jis_eisuu = 102
+  let g:force_alphanumeric_input_command = "osascript -e 'tell application \"System Events\" to key code " . s:keycode_jis_eisuu . "' &"
 
-       inoremap <silent> <Esc> <Esc>:call system(g:force_alphanumeric_input_command)<CR>
+  inoremap <silent> <Esc> <Esc>:call system(g:force_alphanumeric_input_command)<CR>
 
-        autocmd! FocusGained *
-            \ call system(g:force_alphanumeric_input_command)
+  autocmd! FocusGained *
+    \ call system(g:force_alphanumeric_input_command)
 endif
 
 " vimでコピペする場合の設定
 if &term =~ "xterm"
-    let &t_ti .= "\e[?2004h"
-    let &t_te .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
+  let &t_ti .= "\e[?2004h"
+  let &t_te .= "\e[?2004l"
+  let &pastetoggle = "\e[201~"
 
-    function XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
+  function XTermPasteBegin(ret)
+    set paste
+    return a:ret
+  endfunction
 
-    noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-    cnoremap <special> <Esc>[200~ <nop>
-    cnoremap <special> <Esc>[201~ <nop>
+  noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
+  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+  cnoremap <special> <Esc>[200~ <nop>
+  cnoremap <special> <Esc>[201~ <nop>
 endif
 autocmd FileType php,ctp :set dictionary=~/.vim/dict/php.dict
 
