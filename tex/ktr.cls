@@ -11,18 +11,18 @@
 
 % 1ページの設定
 \AtBeginDocument{
-\newcount\@chars\newcount\@lines
-\@chars=40                      % 1行の文字数
-\@lines=40                      % 1ページの行数
-
-\newdimen\@kanjiskip
-\@kanjiskip=\dimexpr(\textwidth-1zw*\@chars)/\numexpr\@chars-1
-\newdimen\@@kanjiskip
-\@@kanjiskip=\dimexpr\@kanjiskip/10
-
-\baselineskip=\dimexpr\textheight/\@lines
-\kanjiskip=\@kanjiskip plus \@@kanjiskip minus \@@kanjiskip
-\parindent=\dimexpr\parindent+\@kanjiskip
+  \newcount\@chars\newcount\@lines
+  \@chars=40                      % 1行の文字数
+  \@lines=40                      % 1ページの行数
+  
+  \newdimen\@kanjiskip
+  \@kanjiskip=\dimexpr(\textwidth-1zw*\@chars)/\numexpr\@chars-1
+  \newdimen\@@kanjiskip
+  \@@kanjiskip=\dimexpr\@kanjiskip/10
+  
+  \baselineskip=\dimexpr\textheight/\@lines
+  \kanjiskip=\@kanjiskip plus \@@kanjiskip minus \@@kanjiskip
+  \parindent=\dimexpr\parindent+\@kanjiskip
 }
 % ここまで
 
@@ -53,9 +53,9 @@
 \patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
 \patchcmd{\ttlh@hang}{\noindent}{}{}{}
 % セクションの上下にできる余白の調整
-\titlespacing{\section}{0pt}{0pt}{0pt} % 2017/12/21 0,10,0 -> 0,0,0へ変更
-\titlespacing{\subsection}{0pt}{5pt}{0pt} % 2017/12/21 0,10,0 -> 0,5,0へ変更
-\titlespacing{\subsubsection}{0pt}{5pt}{0pt} % 2017/12/21 0,10,0 -> 0,5,0へ変更
+\titlespacing{\section}{0pt}{0pt}{0pt}
+\titlespacing{\subsection}{0pt}{5pt}{0pt}
+\titlespacing{\subsubsection}{0pt}{5pt}{0pt}
 % ここまで
 
 
