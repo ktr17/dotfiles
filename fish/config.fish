@@ -33,13 +33,14 @@ function gi
   curl -L -s https://www.gitignore.io/api/$argv
 end
 
-#set JAVA_HOME (/usr/libexec/java_home)
+set JAVA_HOME (/usr/libexec/java_home)
 #set HOMEBREW_CASK_OPTS --appdir=/Applications
 #set ANDROID_HOME ~/Library/Android/sdk
 #set PATH $ANDROID_HOME/platform-tools $PATH
 #set PATH ~/.rbenv/shims $PATH
 set PATH ~/.pyenv/shims $PATH
 set PATH ~/.pyenv/bin $PATH
+set PATH ~/.nodebrew/current/bin $PATH
 
 ### prompt format
 set __fish_git_prompt_showdirtystate 'yes'
@@ -55,7 +56,7 @@ set __fish_git_prompt_char_untrackedfiles '+'
 set __fish_git_prompt_char_stashstate '@'
 set fish_color_cwd "green"
 
-sh checkProxy
+sh ~/dotfiles/script/checkProxy
 
 # プロンプトを変更したいときは fish_prompt を修正
 function fish_prompt
@@ -93,13 +94,15 @@ alias so="source ~/.config/fish/config.fish"
 alias f="open ."
 alias ho="heroku open"
 alias vi="vim"
-alias cdv="cd /Users/ktr17/Documents/大学院/後期/ユビキタス情報システム特論"
+alias cdv="cd ~/Documents/drive/Master/M1"
 alias ptex="ptex2pdf -l -ot -kanji=utf8"
-alias cdp="cd /Users/ktr17/Documents/大学院/PD3/texs/pd_report"
-alias tr="open /Users/ktr17/Documents/treatise/論文集"
 alias net="/Users/ktr17/ns-allinone-3.27/netanim-3.108/NetAnim"
+alias suv="cd /Users/ktr17/Documents/drive/survey"
 alias cdd="cd /Users/ktr17/Desktop"
 alias ip="ipython"
 alias resetmenu="killall SystemUIServer"
 alias cd..="cd .."
 alias ga="git branch -a"
+alias topdf="/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --nologo --nofirststartwizard --convert-to pdf --outdir ./"
+alias na="/Users/ktr17/Documents/drive/Master/M1/ns-allinone-3.28/netanim-3.108/Netanim"
+alias ns="cd /Users/ktr17/Documents/drive/Master/M1/ns-allinone-3.28/ns-3.28"

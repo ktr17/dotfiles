@@ -56,8 +56,9 @@ set hlsearch                     " 検索結果のハイライト
 " swapファイルを作らない設定
 set noswapfile
 
-noremap <C-j> <esc>
-noremap! <C-j> <esc>
+" キーバインド変更
+noremap <S-h> ^
+noremap <S-l> $
 nnoremap sj <C-w>j
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
@@ -69,14 +70,16 @@ nnoremap sH <C-w>H
 nnoremap ss :<C-u>sp<CR>
 nnoremap sv :<C-u>vs<CR>
 nnoremap uf :<C-u>Unite file<CR>
+nnoremap <C-d> Delete
+nnoremap <CR> A<CR><ESC>
 
 " j/kによる移動を早くする
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 
 " vimshellの設定
-nnoremap <silent> vl :VimShell<CR>
-nnoremap <silent> vp :VimShellPop<CR>
+"nnoremap <silent> vl :VimShell<CR>
+"nnoremap <silent> vp :VimShellPop<CR>
 
 "dein Scripts-----------------------------
 if &compatible
