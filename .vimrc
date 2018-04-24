@@ -13,10 +13,10 @@ syntax on
 
 " solarized用の設定
 "set background=light
-"colorscheme solarized
+colorscheme solarized
 
 " molokai用の設定
-colorscheme molokai
+"colorscheme molokai
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
@@ -35,7 +35,9 @@ endif
 " swapファイルを作成しない
 set noswapfile
 " ビジュアルモードで選択したテキストが、クリップボードに入るようにする
-set clipboard=autoselect
+"set clipboard=autoselect
+set clipboard=unnamed,autoselect
+
 
 "Indent ----------------------------------------------
 "" タブ設定
@@ -59,16 +61,19 @@ set noswapfile
 " キーバインド変更
 noremap <S-h> ^
 noremap <S-l> $
-nnoremap sj <C-w>j
+noremap <S-j> <nop>
 nnoremap sk <C-w>k
 nnoremap sl <C-w>l
+nnoremap sj <C-w>j
 nnoremap sh <C-w>h
-nnoremap sJ <C-w>J
+nnoremap sr <C-w>r
+nnoremap sq :q<CR> "画面を閉じる
+nnoremap sw :wq<CR> "保存して閉じる
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
+nnoremap ss :<C-u>sp<CR> "画面を下に分割
+nnoremap sv :<C-u>vs<CR> "画面を上に分割
 nnoremap uf :<C-u>Unite file<CR>
 nnoremap <C-d> Delete
 nnoremap <CR> A<CR><ESC>
@@ -101,7 +106,7 @@ if dein#load_state('/Users/ktr17/dotfiles/.vim')
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
   call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('tpope/vim-surround')
+"  call dein#add('tpope/vim-surround')
   call dein#add('Shougo/unite.vim')
   call dein#add('itchyny/lightline.vim')
   call dein#add('nathanaelkane/vim-indent-guides')
