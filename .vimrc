@@ -69,14 +69,19 @@ nnoremap sh <C-w>h
 nnoremap sr <C-w>r
 nnoremap sq :q<CR> "画面を閉じる
 nnoremap sw :wq<CR> "保存して閉じる
+nnoremap si :w<CR> "保存
+nnoremap no :noh<CR> "検索削除
+nnoremap ;q1 :q!<CR> "保存せずに終了
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 nnoremap ss :<C-u>sp<CR> "画面を下に分割
 nnoremap sv :<C-u>vs<CR> "画面を上に分割
 nnoremap uf :<C-u>Unite file<CR>
-nnoremap <C-d> Delete
 nnoremap <CR> A<CR><ESC>
+nnoremap <C-d> x
+
+inoremap <C-d> <Del> "カーソルの後ろの文字を削除
 
 " j/kによる移動を早くする
 nmap j <Plug>(accelerated_jk_gj)
