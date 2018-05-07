@@ -1,9 +1,13 @@
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
+
 "View ------------------------------------------------
 set number                       "行番号
 set showmatch                    "括弧の対応をハイライト
 set showcmd                      "入力中のコマンドを表示
-"set list lcs=tab:\|\ ,eol:↲      " 不可視文字表示
-set list
+set list lcs=tab:\|\ ,eol:↲      " 不可視文字表示
+"set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set cursorline                   "カーソル行をハイライト
@@ -13,10 +17,10 @@ syntax on
 
 " solarized用の設定
 "set background=light
-colorscheme solarized
+"colorscheme solarized
 
 " molokai用の設定
-"colorscheme molokai
+colorscheme molokai
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
@@ -55,9 +59,6 @@ set ignorecase                   "大文字小文字無視
 set smartcase                    "大文字ではじめたら大文字小文字無視しない
 set hlsearch                     " 検索結果のハイライト
 
-" swapファイルを作らない設定
-set noswapfile
-
 " キーバインド変更
 noremap <S-h> ^
 noremap <S-l> $
@@ -67,21 +68,46 @@ nnoremap sl <C-w>l
 nnoremap sj <C-w>j
 nnoremap sh <C-w>h
 nnoremap sr <C-w>r
-nnoremap sq :q<CR> "画面を閉じる
-nnoremap sw :wq<CR> "保存して閉じる
-nnoremap si :w<CR> "保存
-nnoremap no :noh<CR> "検索削除
-nnoremap ;q1 :q!<CR> "保存せずに終了
+ "保存
+nnoremap si :w<CR>
+ "検索削除
+nnoremap no :noh<CR>
+ "閉じる
+nnoremap sq :q<CR>
+"nnoremap ;q1 :q!<CR> "保存せずに終了
+nnoremap ; :
+nnoremap 1 !
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
-nnoremap ss :<C-u>sp<CR> "画面を下に分割
-nnoremap sv :<C-u>vs<CR> "画面を上に分割
+"画面を下に分割
+nnoremap ss :<C-u>sp<CR>
+"画面を上に分割
+nnoremap sv :<C-u>vs<CR> 
 nnoremap uf :<C-u>Unite file<CR>
-nnoremap <CR> A<CR><ESC>
+"改行
+nnoremap so A<CR><ESC>
+"先頭へ移動
+nnoremap <C-a> 0
 nnoremap <C-d> x
+"カーソルの後ろの文字を削除
+inoremap <C-d> <Del>
+inoremap <C-k> <ESC><C-v>$<Del>i
+nnoremap <C-k> <ESC><C-v>$<Del>
+"画面の高さを減少
+nnoremap s- <C-w>-
+"画面の高さを増加
+nnoremap s= <C-w>+
+"画面の幅を減少
+nnoremap s, <C-w><
+"画面の幅を増加
+nnoremap s. <C-w>>
+"タブの移動
+nnoremap g[ gT
+nnoremap g] gt
+"行の末尾に追加
+nnoremap <C-l> A
 
-inoremap <C-d> <Del> "カーソルの後ろの文字を削除
 
 " j/kによる移動を早くする
 nmap j <Plug>(accelerated_jk_gj)

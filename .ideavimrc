@@ -1,0 +1,19 @@
+nnoremap ; :
+nnoremap <S-l> $
+nnoremap sk <C-w>k
+nnoremap si :w<CR>
+nnoremap sl <C-w>l
+nnoremap sj <C-w>j
+nnoremap sh <C-w>h
+nnoremap sr <C-w>r
+nnoremap <S-h> ^
+nnoremap 1 !
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap uf :<C-u>Unite file<CR>
+nnoremap <C-a> 0
+nnoremap <C-d> x
+nnoremap sq :q<CR>
+nnoremap nq :q!<CR>
+inoremap <C-d> <Del>
+
