@@ -15,5 +15,6 @@ nnoremap <C-a> 0
 nnoremap <C-d> x
 nnoremap sq :q<CR>
 nnoremap nq :q!<CR>
+nnoremap si :w<CR>
 inoremap <C-d> <Del>
 

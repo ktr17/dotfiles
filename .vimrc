@@ -1,5 +1,7 @@
+"set clipboard=autoselect
+set clipboard=unnamed,autoselect
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
 
 "View ------------------------------------------------
@@ -36,12 +38,10 @@ if has('syntax')
   call ZenkakuSpace()
 endif
 
+
 " swapファイルを作成しない
 set noswapfile
 " ビジュアルモードで選択したテキストが、クリップボードに入るようにする
-"set clipboard=autoselect
-set clipboard=unnamed,autoselect
-
 
 "Indent ----------------------------------------------
 "" タブ設定
@@ -67,6 +67,7 @@ nnoremap sk <C-w>k
 nnoremap sl <C-w>l
 nnoremap sj <C-w>j
 nnoremap sh <C-w>h
+" 分割画面を回転
 nnoremap sr <C-w>r
  "保存
 nnoremap si :w<CR>
@@ -77,6 +78,7 @@ nnoremap sq :q<CR>
 "nnoremap ;q1 :q!<CR> "保存せずに終了
 nnoremap ; :
 nnoremap 1 !
+nnoremap q; q:
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
@@ -107,7 +109,6 @@ nnoremap g[ gT
 nnoremap g] gt
 "行の末尾に追加
 nnoremap <C-l> A
-
 
 " j/kによる移動を早くする
 nmap j <Plug>(accelerated_jk_gj)
@@ -145,6 +146,7 @@ if dein#load_state('/Users/ktr17/dotfiles/.vim')
   call dein#add('rhysd/accelerated-jk')
   call dein#add('Shougo/vimproc.vim', {'build': 'make'})
   call dein#add('jiangmiao/auto-pairs')
+  call dein#add('sophacles/vim-processing')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })

@@ -37,10 +37,11 @@ set JAVA_HOME (/usr/libexec/java_home)
 #set HOMEBREW_CASK_OPTS --appdir=/Applications
 #set ANDROID_HOME ~/Library/Android/sdk
 #set PATH $ANDROID_HOME/platform-tools $PATH
-#set PATH ~/.rbenv/shims $PATH
+set PATH ~/.rbenv/shims $PATH
 set PATH ~/.pyenv/shims $PATH
 set PATH ~/.pyenv/bin $PATH
 set PATH ~/.nodebrew/current/bin $PATH
+export CLASSPATH=.:/Users/ktr17/Documents/drive/Master/M1/TeachingClass/Network_and_Security_Development/apache-tomcat-9.0.8/lib/servlet-api.jar
 
 ### prompt format
 set __fish_git_prompt_showdirtystate 'yes'
