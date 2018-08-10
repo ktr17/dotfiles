@@ -1,0 +1,28 @@
+{
+  "title": "Alfred起動時にIMEを英数にする",
+  "rules": [
+    {
+      "description": "Alfred起動時にIMEを英数にする",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "spacebar",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": ["option"]
+            },
+            {
+              "key_code": "japanese_eisuu"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
