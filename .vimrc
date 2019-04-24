@@ -13,10 +13,10 @@ syntax on
 
 " solarized用の設定
 "set background=light
-colorscheme solarized
+"colorscheme solarized
 
 " molokai用の設定
-"colorscheme molokai
+colorscheme molokai
 
 " 全角スペースをハイライト表示
 function! ZenkakuSpace()
