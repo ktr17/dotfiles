@@ -62,10 +62,10 @@ set noswapfile
 noremap <S-h> ^
 noremap <S-l> $
 noremap <S-j> <nop>
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sj <C-w>j
-nnoremap sh <C-w>h
+nnoremap sk <C-w>k "上下分割した画面の上に移動
+nnoremap sl <C-w>l "左右分割した画面の右に移動
+nnoremap sj <C-w>j "上下分割した画面の下に移動
+nnoremap sh <C-w>h "左右分割した画面の左に移動
 nnoremap sr <C-w>r
 nnoremap sq :q<CR> "画面を閉じる
 nnoremap sw :wq<CR> "保存して閉じる
@@ -77,7 +77,7 @@ nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 nnoremap ss :<C-u>sp<CR> "画面を下に分割
 nnoremap sv :<C-u>vs<CR> "画面を上に分割
-nnoremap uf :<C-u>Unite file<CR>
+nnoremap uf :<C-u>Unite file<CR> "同じウィンドウで別のファイルを開く
 nnoremap <CR> A<CR><ESC>
 nnoremap <C-d> x
 
@@ -229,7 +229,7 @@ for n in range(1, 9)
 endfor
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 map <silent> [Tag]t :tablast <bar> tabnew<CR>
-" tt 新しいタブを一番右に作る
+" tt 新しいタブを一番右に作る:wq ファイル名で保存できる
 map <silent> [Tag]x :tabclose<CR>
 " tx タブを閉じる
 map <silent> [Tag]n :tabnext<CR>
