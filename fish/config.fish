@@ -33,30 +33,28 @@ function gi
   curl -L -s https://www.gitignore.io/api/$argv
 end
 
-set JAVA_HOME (/usr/libexec/java_home)
+#set JAVA_HOME (/usr/libexec/java_home)
 #set HOMEBREW_CASK_OPTS --appdir=/Applications
 #set ANDROID_HOME ~/Library/Android/sdk
 #set PATH $ANDROID_HOME/platform-tools $PATH
 #set PATH ~/.rbenv/shims $PATH
 set PATH ~/.pyenv/shims $PATH
 set PATH ~/.pyenv/bin $PATH
-set PATH ~/.nodebrew/current/bin $PATH
+#set PATH ~/.nodebrew/current/bin $PATH
 
 ### prompt format
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'
 set __fish_git_prompt_showuntrackedfiles 'yes'
 set __fish_git_prompt_showupstream 'yes'
-set __fish_git_prompt_color_branch blue
+set __fish_git_prompt_color_branch magenta
 set __fish_git_prompt_color_upstream_ahead gray
 set __fish_git_prompt_color_upstream_behin red
 set __fish_git_prompt_char_dirtystate '*'
 set __fish_git_prompt_char_stagedstate '#'
 set __fish_git_prompt_char_untrackedfiles '+'
 set __fish_git_prompt_char_stashstate '@'
-set fish_color_cwd "green"
-
-sh ~/dotfiles/script/checkProxy
+set fish_color_cwd "cyan"
 
 # プロンプトを変更したいときは fish_prompt を修正
 function fish_prompt
@@ -92,17 +90,6 @@ alias gs="git status"
 alias sl="ls"
 alias so="source ~/.config/fish/config.fish"
 alias f="open ."
-alias ho="heroku open"
 alias vi="vim"
-alias cdv="cd ~/Documents/drive/Master/M1"
-alias ptex="ptex2pdf -l -ot -kanji=utf8"
-alias net="/Users/ktr17/ns-allinone-3.27/netanim-3.108/NetAnim"
-alias suv="cd /Users/ktr17/Documents/drive/survey"
-alias cdd="cd /Users/ktr17/Desktop"
-alias ip="ipython"
-alias resetmenu="killall SystemUIServer"
 alias cd..="cd .."
 alias ga="git branch -a"
-alias topdf="/Applications/LibreOffice.app/Contents/MacOS/soffice --headless --nologo --nofirststartwizard --convert-to pdf --outdir ./"
-alias na="/Users/ktr17/Documents/drive/Master/M1/ns-allinone-3.28/netanim-3.108/Netanim"
-alias ns="cd /Users/ktr17/Documents/drive/Master/M1/ns-allinone-3.28/ns-3.28"
