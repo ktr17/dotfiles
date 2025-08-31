@@ -8,6 +8,7 @@ set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set cursorline                   "カーソル行をハイライト
 set backspace=indent,eol,start "Pythonなどでインデントをbackspaceで消す
+set belloff=all
 
 syntax on
 
@@ -98,15 +99,15 @@ endif
 
 
 " Required:
-set runtimepath+=/Users/ktr17/dotfiles/.vim/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/ktr17/dotfiles/.vim')
-  call dein#begin('/Users/ktr17/dotfiles/.vim')
+if dein#load_state('~/.vim')
+  call dein#begin('~/.vim')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/ktr17/dotfiles/.vim/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.vim/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
