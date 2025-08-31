@@ -8,7 +8,9 @@ git clone https://github.com/ktr17/dotfiles.git
 ```
 
 ## config files link
+```
 make create_simlink
+```
 
 ## Vim settings
 viではなくvimをインストールしていることを確認する
