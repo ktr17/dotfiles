@@ -6,8 +6,8 @@ BREWFILE = ~/Workspace/github.com/ktr17/dotfiles/Brewfile
 
 create_symlink:
 	@echo "${GREEN}=> [vim] ~/.vimrc, ~/.vim${NOCOLOR}"
-	ln -sfn ~/Workspace/github.com/ktr17/dotfiles/.vimrc ~/.vimrc
-	ln -sfn ~/Workspace/github.com/ktr17/dotfiles/.vim ~/.vim
+	ln -s ~/Workspace/github.com/ktr17/dotfiles/.vimrc ~/.vimrc
+	ln -s ~/Workspace/github.com/ktr17/dotfiles/.vim ~/.vim
 	@echo "${GREEN}=> [fish] ~/.config${NOCOLOR}"
 	ln -s ~/Workspace/github.com/ktr17/dotfiles/fish ~/.config
 
