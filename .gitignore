@@ -1,7 +1,13 @@
 fish/fishd.80e650199d0e
-/.vim/dein/
 .DS_Store
+# nvim
+.config/nvim/cache
+.config/nvim/swap
+.config/nvim/lazy-lock.json
+# vim
+/.vim/dein/
 .vim/.netrwhist*
 .vim/*cache*
 .vim/*state*
 .vim/repo*
+

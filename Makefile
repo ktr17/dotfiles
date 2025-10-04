@@ -8,9 +8,8 @@ create_symlink:
 	@echo "${GREEN}=> [vim] ~/.vimrc, ~/.vim${NOCOLOR}"
 	ln -s ~/Workspace/github.com/ktr17/dotfiles/.vimrc ~/.vimrc
 	ln -s ~/Workspace/github.com/ktr17/dotfiles/.vim ~/.vim
-	@echo "${GREEN}=> [fish] ~/.config${NOCOLOR}"
-	ln -s ~/Workspace/github.com/ktr17/dotfiles/fish ~/.config
-
+	@echo "${GREEN}=> [config] ~/.config${NOCOLOR}"
+	ln -s ~/Workspace/github.com/ktr17/dotfiles/.config ~/.config
 
 install_brew:
 	brew bundle install --file $(BREWFILE)

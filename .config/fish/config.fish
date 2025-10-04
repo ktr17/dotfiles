@@ -40,7 +40,7 @@ end
 #set PATH ~/.rbenv/shims $PATH
 set PATH ~/.pyenv/shims $PATH
 set PATH ~/.pyenv/bin $PATH
-#set PATH ~/.nodebrew/current/bin $PATH
+set PATH ~/.nodebrew/current/bin $PATH
 
 ### prompt format
 set __fish_git_prompt_showdirtystate 'yes'
