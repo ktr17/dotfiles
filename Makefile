@@ -10,6 +10,8 @@ create_symlink:
 	ln -s ~/Workspace/github.com/ktr17/dotfiles/.vim ~/.vim
 	@echo "${GREEN}=> [config] ~/.config${NOCOLOR}"
 	ln -s ~/Workspace/github.com/ktr17/dotfiles/.config ~/.config
+	@echo "${GREEN}=> [config] ~/.hammerspoon${NOCOLOR}"
+	ln -s ~/Workspace/github.com/ktr17/dotfiles/.hammerspoon ~/.hammerspoon
 
 install_brew:
 	brew bundle install --file $(BREWFILE)

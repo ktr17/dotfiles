@@ -11,3 +11,5 @@ fish/fishd.80e650199d0e
 .vim/*state*
 .vim/repo*
 
+# iterm2
+.config/iterm2
