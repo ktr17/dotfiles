@@ -8,9 +8,21 @@ git clone https://github.com/ktr17/dotfiles.git
 ```
 
 ## config files link
+
+**Mac:**
+```sh
+make create_symlink_mac
 ```
-make create_simlink
+
+**Windows:**
+```sh
+make create_symlink_windows
 ```
+
+| ターゲット | OS | 内容 |
+|---|---|---|
+| `create_symlink_mac` | Mac | `.vimrc`, `.vim`, `.config`, `.hammerspoon`, Claude skills |
+| `create_symlink_windows` | Windows | Claude skills (Junction) |
 
 ## Vim settings
 viではなくvimをインストールしていることを確認する
